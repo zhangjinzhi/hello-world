@@ -1,0 +1,379 @@
+/* *字号代表所有标签继承{}内的属性 */
+* {
+	/*
+	边界设置为0
+	留白设置为0
+	文字大小设置为12px像素
+	文字行高 1.2px像素
+	*/
+    margin:0;
+    padding:0;
+    font-size:12px;
+    line-height:1.2px;
+}
+
+html{
+	/*设置黑色背景*/
+    background:#000;
+}
+
+body{
+	/*
+	宽度设为465px像素
+	高度设为465px像素
+	控制卷轴设为隐藏
+	*/
+    width:665px;
+    height:665px;
+    overflow:hidden;
+}
+
+
+/* 游戏背景 */
+#game{
+	/*
+	排版position位置设为relative相对位置
+	background-position背景位置(x, y)都设为0px
+	background-repeat背景重复设为no-repeat不重复
+	auto为自动预设
+	*/
+    position:relative;
+    width:319px;
+    height:375px;
+    overflow:hidden;
+    margin:40px auto 0;
+    background-position:0px 0px;
+    background-repeat:no-repeat;
+}
+
+/* 鼠标设置 */
+*{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+}
+
+
+
+/* 土拨鼠 显示区域 */
+#enemy{
+    position: absolute;
+    top:150px;
+    left:0;
+    width:319px;
+    height:160px;
+    overflow: hidden;
+}
+
+/* 绘制土拨鼠 */
+.enemys{
+	/*
+	display显示设为 block区块
+	-webkit-appearance和-moz-appearance 接口元素设为button按钮
+	-webkit-animation-iteration-count动画播放次数设为infinite无限次
+	cursor鼠标显示设为pointer手
+	border框线设为none无
+	outline外框线设为none无;
+	*/
+    z-index:3;
+    position:absolute;
+    top:0px;
+    left:0;
+    width:49px;
+    height:49px;
+    display:block;
+    -webkit-appearance:button;
+    -moz-appearance:button;
+    background-position:0px 0px;
+    background-repeat:no-repeat;
+    -webkit-animation-iteration-count:infinite;
+    cursor:pointer;
+    opacity:0.9;
+    border:none;
+    outline:none;
+}
+
+/* 土拨鼠死掉时 */
+.enemys:checked{
+	/*
+	-webkit-animation-name动画名设为none无	
+    -webkit-pointer-events和pointer-events按键事件都设为none无;
+	*/
+    overflow:hidden;
+    -webkit-animation-name:none;
+    -webkit-pointer-events:none;
+    pointer-events:none; /*关闭鼠标事件*/
+    opacity:0;  /*不透明程度,0表示完全透明，看不见了*/
+}
+
+
+/* 绘制土堆 */
+#mound{
+    position:absolute;
+    z-index:1;
+    top:160px;
+    left:0;
+    display:block;
+    width:319px;
+    height:200px;
+    -webkit-pointer-events:none;
+    pointer-events:none;
+    background-position:0px 10px;
+    background-repeat:no-repeat;
+}
+
+
+/* 分数起始位置 */
+#score{
+  position: absolute;
+  top: -640px;
+  left:0;
+  width: 111px;
+  height: 694px;
+}
+
+
+/* 土拨鼠出现起始位置 */
+/*
+1和6同样的出现位置 
+2和7同样的出现位置
+3和8同样的出现位置
+4和9同样的出现位置
+5和10同样的出现位置
+*/
+.enemys#enemy_1 {top:-93px; left:12px;}
+.enemys#enemy_2 {top:-93px; left:74px;}
+.enemys#enemy_3 {top:-93px; left:135px;}
+.enemys#enemy_4 {top:-93px; left:196px;}
+.enemys#enemy_5 {top:-93px; left:258px;}
+.enemys#enemy_6 {top:-93px; left:12px;}
+.enemys#enemy_7 {top:-93px; left:74px;}
+.enemys#enemy_8 {top:-93px; left:135px;}
+.enemys#enemy_9 {top:-93px; left:196px;}
+.enemys#enemy_10{top:-93px; left:258px;}
+
+
+/* http://www.w3school.com.cn/tiy/c.asp?f=css_transform_translatey */
+
+/* 动画 土拨鼠1的动画AI设置 */
+@-webkit-keyframes enemy_1{
+	/*
+	隐藏全身位置设为 200px
+	露出半身位置设为 160px
+	全身出现位置设为 145px
+	*/
+      0% {-webkit-transform:translateY(200px);}
+     40% {-webkit-transform:translateY(145px);}
+     50% {-webkit-transform:translateY(200px);}
+     90% {-webkit-transform:translateY(200px);}
+    100% {-webkit-transform:translateY(200px); }
+}
+
+/* 设置土拨鼠1的动画播放 */
+#enemy_1{
+    -webkit-animation-name:enemy_1;
+    -webkit-animation-duration:5s;
+    -webkit-animation-delay:0s;
+}
+
+/* 动画 土拨鼠6的动画AI设置 */
+@-webkit-keyframes enemy_6{
+      0% {-webkit-transform:translateY(200px);}
+     40% {-webkit-transform:translateY(200px);}
+     50% {-webkit-transform:translateY(145px);}
+     90% {-webkit-transform:translateY(145px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠6的动画播放 */
+#enemy_6{
+    -webkit-animation-name:enemy_6;
+    -webkit-animation-duration:5s;
+    -webkit-animation-delay:0s;
+}
+
+/* 动画 土拨鼠2的动画AI设置 */
+@-webkit-keyframes enemy_2{
+      0% {-webkit-transform:translateY(200px);}
+     40% {-webkit-transform:translateY(200px);}
+     50% {-webkit-transform:translateY(145px);}
+     90% {-webkit-transform:translateY(145px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠2的动画播放 */
+#enemy_2{
+    -webkit-animation-name:enemy_2;
+    -webkit-animation-duration:5s;
+    -webkit-animation-delay:1s;
+}
+
+/* 动画 土拨鼠7的动画AI设置 */
+@-webkit-keyframes enemy_7{
+      0% {-webkit-transform:translateY(200px);}
+     20% {-webkit-transform:translateY(145px);}
+     30% {-webkit-transform:translateY(200px);}
+     40% {-webkit-transform:translateY(145px);}
+     45% {-webkit-transform:translateY(200px);}
+     50% {-webkit-transform:translateY(200px);}
+     90% {-webkit-transform:translateY(200px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠7的动画播放 */
+#enemy_7{
+    -webkit-animation-name:enemy_7;
+    -webkit-animation-duration:5s;
+    -webkit-animation-delay:1s;
+}
+
+/* 动画 土拨鼠3的动画AI设置 */
+@-webkit-keyframes enemy_3{
+      0% {-webkit-transform:translateY(200px);}
+     40% {-webkit-transform:translateY(200px);}
+     50% {-webkit-transform:translateY(145px);}
+     60% {-webkit-transform:translateY(145px);}
+     90% {-webkit-transform:translateY(200px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠3的动画播放 */
+#enemy_3{
+    -webkit-animation-name:enemy_3;
+    -webkit-animation-duration:6s;
+    -webkit-animation-delay:0s;
+}
+
+/* 动画 土拨鼠8的动画AI设置 */
+@-webkit-keyframes enemy_8{
+      0% {-webkit-transform:translateY(200px);}
+     10% {-webkit-transform:translateY(145px);}
+     15% {-webkit-transform:translateY(200px);}
+     20% {-webkit-transform:translateY(145px);}
+     25% {-webkit-transform:translateY(200px);}
+     30% {-webkit-transform:translateY(145px);}
+     40% {-webkit-transform:translateY(200px);}
+     50% {-webkit-transform:translateY(200px);}
+     70% {-webkit-transform:translateY(200px);}
+     90% {-webkit-transform:translateY(145px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠8的动画播放 */
+#enemy_8{
+    -webkit-animation-name:enemy_8;
+    -webkit-animation-duration:10s;
+    -webkit-animation-delay:2s;
+}
+
+/* 动画 土拨鼠4的动画AI设置 */
+@-webkit-keyframes enemy_4{
+      0% {-webkit-transform:translateY(200px);}
+     30% {-webkit-transform:translateY(160px);}
+     50% {-webkit-transform:translateY(145px);}
+     60% {-webkit-transform:translateY(200px);}
+     90% {-webkit-transform:translateY(200px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠4的动画播放 */
+#enemy_4{
+    -webkit-animation-name:enemy_4;
+    -webkit-animation-duration:10s;
+    -webkit-animation-delay:1s;
+}
+
+/* 动画 土拨鼠9的动画AI设置 */
+@-webkit-keyframes enemy_9{
+      0% {-webkit-transform:translateY(200px);}
+     20% {-webkit-transform:translateY(200px);}
+     30% {-webkit-transform:translateY(200px);}
+     60% {-webkit-transform:translateY(200px);}
+     70% {-webkit-transform:translateY(145px);}
+     75% {-webkit-transform:translateY(160px);}
+     80% {-webkit-transform:translateY(145px);}
+     85% {-webkit-transform:translateY(160px);}
+     90% {-webkit-transform:translateY(145px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠9的动画播放 */
+#enemy_9{
+    -webkit-animation-name:enemy_9;
+    -webkit-animation-duration:10s;
+    -webkit-animation-delay:1s;
+}
+
+/* 动画 土拨鼠5的动画AI设置 */
+@-webkit-keyframes enemy_5{
+      0% {-webkit-transform:translateY(200px);}
+     30% {-webkit-transform:translateY(9200px);}
+     60% {-webkit-transform:translateY(145px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠5的动画播放 */
+#enemy_5{
+    -webkit-animation-name:enemy_5;
+    -webkit-animation-duration:10s;
+    -webkit-animation-delay:2s;
+}
+
+/* 动画 土拨鼠10的动画AI设置 */
+@-webkit-keyframes enemy_10{
+      0% {-webkit-transform:translateY(200px);}
+     5% {-webkit-transform:translateY(145px);}
+     30% {-webkit-transform:translateY(200px);}
+     60% {-webkit-transform:translateY(200px);}
+     90% {-webkit-transform:translateY(200px);}
+    100% {-webkit-transform:translateY(200px);}
+}
+
+/* 设置土拨鼠10的动画播放 */
+#enemy_10{
+    -webkit-animation-name:enemy_10;
+    -webkit-animation-duration:10s;
+    -webkit-animation-delay:1s;
+}
+
+	
+/* 指定游戏场景图像所对应的该图像文件存放的路径 */
+#game{
+	background-image: url(img/gophers-Slice_Background.png);
+}
+	
+	
+/* 地鼠 1 7 8 9 10 的图像文件所存放的路径 */
+.enemys#enemy_1,.enemys#enemy_7,.enemys#enemy_8,.enemys#enemy_9,.enemys#enemy_10{
+    background-image: url(img/gophers-1.png);
+}
+
+/* 土拨鼠2的图像文件所存放的路径 */
+.enemys#enemy_2{
+    background-image: url(img/gophers-2.png);
+}
+
+/* 土拨鼠3的图像文件所存放的路径 */
+.enemys#enemy_3{
+    background-image: url(img/gophers-3.png);
+}
+
+/* 土拨鼠4的图像文件所存放的路径 */
+.enemys#enemy_4{
+    background-image: url(img/gophers-4.png);
+}
+
+/* 土拨鼠5的图像文件所存放的路径 */
+.enemys#enemy_5{
+    background-image: url(img/gophers-5.png);
+}
+
+/* 土拨鼠6的图像文件所存放的路径 */
+.enemys#enemy_6{
+    background-image: url(img/gophres-6.png);
+}
+
+/* 土堆的图像文件所存放的路径 */
+#mound{
+    background-image: url(img/gophers-Slice_Mound.png);
+}
+
